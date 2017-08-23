@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.android.tripolis.boodilo.Adapters.AlarmListAdapter;
 import com.android.tripolis.boodilo.Core.Alarm;
 import com.android.tripolis.boodilo.Fragments.AlarmAddFragment;
+import com.android.tripolis.boodilo.Fragments.AlarmsListFragment;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
         //alarmsList = (ListView) findViewById(R.id.alarmsList);
         //alarmsList.setAdapter(new AlarmListAdapter(getApplicationContext(), new ArrayList<Alarm>()));
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        AlarmsListFragment fragment = new AlarmsListFragment();
+        ft.add(R.id.fragment, fragment, fragment.getClass().toString());
+        ft.commit();
     }
 
     @Override
@@ -53,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_favorite:
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 AlarmAddFragment fragment = new AlarmAddFragment();
-                fragmentTransaction.add(R.id.fragment2, fragment, "AlarmAddFragment");
+                fragmentTransaction.add(R.id.fragment, fragment, "AlarmAddFragment");
                 fragmentTransaction.commit();
                 return true;
             case R.id.action_settings:
