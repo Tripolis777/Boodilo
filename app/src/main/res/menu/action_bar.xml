@@ -5,10 +5,10 @@
     tools:context="com.android.tripolis.boodilo.MainActivity">
 
     <item
-        android:id="@+id/action_favorite"
+        android:id="@+id/action_add_alarm"
         android:icon="@drawable/ic_action_alarm_add"
-        android:title="Favotite"
-        app:showAsAction="ifRoom"/>
+        android:title="Add Alarm"
+        app:showAsAction="ifRoom" />
 
     <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_settings"

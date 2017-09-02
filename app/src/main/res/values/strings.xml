@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Boodilo</string>
+    <string name="app_name">Boodilo Beta</string>
     <string name="action_settings">Settings</string>
 
     <string-array name="alarm_entries_debug">
