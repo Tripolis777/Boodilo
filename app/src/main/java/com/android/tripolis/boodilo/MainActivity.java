@@ -1,9 +1,8 @@
 package com.android.tripolis.boodilo;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -11,12 +10,8 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
-import com.android.tripolis.boodilo.Adapters.AlarmListAdapter;
-import com.android.tripolis.boodilo.Core.Alarm;
 import com.android.tripolis.boodilo.Fragments.AlarmAddFragment;
 import com.android.tripolis.boodilo.Fragments.AlarmsListFragment;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,17 +25,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment_placeholder, AlarmsListFragment.newInstance(), "alarmList")
+                    .commit();
+        }
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //fragmentPlaceholder = (FrameLayout) findViewById(R.id.fragment_placeholder);
-
-        //alarmsList = (ListView) findViewById(R.id.alarmsList);
-        //alarmsList.setAdapter(new AlarmListAdapter(getApplicationContext(), new ArrayList<Alarm>()));
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        AlarmsListFragment fragment = new AlarmsListFragment();
-        ft.add(R.id.fragment_placeholder, fragment, fragment.getClass().toString()).commit();
     }
 
     @Override
@@ -62,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_add_alarm:
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 AlarmAddFragment fragment = new AlarmAddFragment();
-                fragmentTransaction.add(R.id.fragment_placeholder, fragment);
+                fragmentTransaction.replace(R.id.fragment_placeholder, fragment, "alarmAdd");
                 fragmentTransaction.commit();
                 return true;
             case R.id.action_settings:

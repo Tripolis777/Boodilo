@@ -19,6 +19,10 @@ public class AlarmsListFragment extends Fragment {
 
     private TextView testTextView;
 
+    public static AlarmsListFragment newInstance() {
+        return new AlarmsListFragment();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -5,23 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/alarmListTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:visibility="visible" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/btn_star" />
-
     <ListView
-        android:id="@+id/alarmsList"
+        android:id="@+id/alarmsListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:entries="@array/alarm_entries_debug"
-        android:visibility="invisible" />
+        android:layout_height="match_parent" />
 </LinearLayout>
