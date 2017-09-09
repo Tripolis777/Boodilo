@@ -28,7 +28,7 @@ public class BooDBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("");
+        new BooDBCreateHelper().createDatabase(sqLiteDatabase);
     }
 
     @Override
