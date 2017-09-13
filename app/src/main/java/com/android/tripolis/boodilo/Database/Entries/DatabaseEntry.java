@@ -7,7 +7,5 @@ import java.util.List;
  */
 
 public interface DatabaseEntry {
-    String getSQLCreateQuery();
-    String getSQLDeleteQuery();
-    List<String> getSQLUpdateQueries();
+
 }

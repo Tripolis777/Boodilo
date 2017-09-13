@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ToggleButton
-        android:id="@+id/toggleButton"
+        android:id="@+id/alarmStatusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -12,13 +12,13 @@
         android:text="ToggleButton" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/alarmTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/toggleButton"
+        android:layout_alignBottom="@+id/alarmStatusButton"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/toggleButton"
+        android:layout_toStartOf="@+id/alarmStatusButton"
         android:gravity="center_vertical"
         android:text="TextView"
         android:textSize="36sp" />
