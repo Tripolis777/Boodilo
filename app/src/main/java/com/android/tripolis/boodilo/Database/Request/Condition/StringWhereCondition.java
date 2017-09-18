@@ -2,6 +2,8 @@ package com.android.tripolis.boodilo.Database.Request.Condition;
 
 import android.support.annotation.Nullable;
 
+import java.util.ArrayList;
+
 /**
  * Created by v.karyagin on 9/13/17.
  */
@@ -9,6 +11,7 @@ import android.support.annotation.Nullable;
 public class StringWhereCondition implements WhereCondition<String> {
 
     private final StringBuilder stringBuilder;
+    private ArrayList<String> whereArgs;
 
     public StringWhereCondition () {
         stringBuilder = new StringBuilder();
@@ -18,12 +21,12 @@ public class StringWhereCondition implements WhereCondition<String> {
         this.addCondition(condition, null);
     }
 
-    public void addCondition(Condition condition, @Nullable LogicOperation logicOperation) {
-        if (logicOperation == null && stringBuilder.length() > 0)
-            logicOperation = LogicOperation.AND;
+    public void addCondition(Condition condition, @Nullable LogicOperator logicOperator) {
+        if (logicOperator == null && stringBuilder.length() > 0)
+            logicOperator = LogicOperator.AND;
 
-        if (logicOperation != null)
-            stringBuilder.append(logicOperation.toString());
+        if (logicOperator != null)
+            stringBuilder.append(logicOperator.toString());
 
         stringBuilder.append(condition.toString());
     }

@@ -17,47 +17,20 @@ public class SimpleSelectRequest extends SelectRequest<String> {
 
     private static final String DELIMITER = ", ";
 
-    private ArrayList<String> whereConditions;
-    private ArrayList<String> fields;
+    private WhereCondition<String> whereCondition;
 
     public SimpleSelectRequest(String tableName) {
         super(tableName);
-        whereConditions = new ArrayList<>();
-        fields = new ArrayList<>();
-    }
-
-    @Override
-    public String getSQLRequest() {
-
-        StringBuilder builder = new StringBuilder();
-        builder.append("SELECT ")
-               .append( fields.isEmpty() ? SELECT_ALL : getSelectFieldsSQL() )
-               .append(" FROM ")
-               .append(tableName);
-
-        if (!whereConditions.isEmpty())
-            builder.append(getWhereSQL());
-
-        return builder.toString();
     }
 
     @Override
     public void setWhereCondition(WhereCondition<String> whereCondition) {
-        whereConditions.add(whereCondition.getWhereSQL());
-    }
-
-    @Override
-    public void setSelectFields(String[] fields) {
-
+        this.whereCondition = whereCondition;
     }
 
     @Override
     public String getWhereSQL() {
-        return TextUtils.join(DELIMITER, whereConditions);
+        return whereCondition.getWhereSQL();
     }
 
-    @Override
-    public String getSelectFieldsSQL() {
-        return TextUtils.join(DELIMITER, fields);
-    }
 }
