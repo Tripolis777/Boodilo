@@ -16,7 +16,7 @@ public class BooDBOpenHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Boodilo.db";
 
-    public static BooDBOpenHelper newInstance(Context context, @Nullable SQLiteDatabase.CursorFactory factory) {
+    public static BooDBOpenHelper getInstance(Context context, @Nullable SQLiteDatabase.CursorFactory factory) {
         if (instance == null)
             instance = new BooDBOpenHelper(context, factory);
         return instance;

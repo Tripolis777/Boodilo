@@ -1,4 +1,4 @@
-package com.android.tripolis.boodilo.Database.Request.Condition;
+package com.android.tripolis.boodilo.Database.Query.Condition;
 
 import android.support.annotation.Nullable;
 

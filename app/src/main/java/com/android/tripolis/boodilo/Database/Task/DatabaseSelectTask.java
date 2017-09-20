@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 
 import com.android.tripolis.boodilo.Database.BooDBOpenHelper;
-import com.android.tripolis.boodilo.Database.Request.SelectRequest;
+import com.android.tripolis.boodilo.Database.Query.SelectQuery;
 import com.android.tripolis.boodilo.Database.Response.SelectResponse;
 import com.android.tripolis.boodilo.Database.Response.SelectResponseFactory;
 
@@ -14,29 +14,27 @@ import com.android.tripolis.boodilo.Database.Response.SelectResponseFactory;
  * Created by v.karyagin on 9/12/17.
  */
 
-public class DatabaseSelectTask extends AsyncTask<SelectRequest, Integer, SelectResponse> {
+public class DatabaseSelectTask extends DatabaseTask<SelectQuery, Integer, SelectResponse> {
 
     private final Context context;
     private final BooDBOpenHelper dbOpenHelper;
-    private final TaskListener<SelectResponse> taskListener;
     private final SelectResponseFactory factory;
 
     public DatabaseSelectTask (Context context, TaskListener<SelectResponse> taskListener, SelectResponseFactory factory) {
-        super();
+        super(taskListener);
         this.context = context;
-        this.taskListener = taskListener;
         this.factory = factory;
 
-        dbOpenHelper = BooDBOpenHelper.newInstance(context, null);
+        dbOpenHelper = BooDBOpenHelper.getInstance(context, null);
     }
 
     @Override
-    protected SelectResponse doInBackground(SelectRequest... selectRequests) {
+    protected SelectResponse doInBackground(SelectQuery... selectRequests) {
         SelectResponse result = null;
 
         SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
 
-        SelectRequest simpleSelectRequest = selectRequests[0];
+        SelectQuery simpleSelectRequest = selectRequests[0];
         if (simpleSelectRequest != null) {
             Cursor cursor = db.query(
                     simpleSelectRequest.getDistinct(),
@@ -54,14 +52,5 @@ public class DatabaseSelectTask extends AsyncTask<SelectRequest, Integer, Select
         }
 
         return result;
-    }
-
-    @Override
-    protected void onPostExecute(SelectResponse result) {
-        if (result == null) {
-            taskListener.onError();
-        } else {
-            taskListener.onSuccess(result);
-        }
     }
 }

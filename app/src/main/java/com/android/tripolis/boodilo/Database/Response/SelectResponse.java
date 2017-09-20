@@ -14,7 +14,7 @@ public abstract class SelectResponse<T> {
     protected final ArrayList<T> rows;
 
     public SelectResponse(Cursor cursor) {
-        rows = (ArrayList) Collections.EMPTY_LIST;
+        rows = new ArrayList<>();
         init(cursor);
     }
 

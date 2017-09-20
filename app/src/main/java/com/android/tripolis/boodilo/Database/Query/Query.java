@@ -1,14 +1,14 @@
-package com.android.tripolis.boodilo.Database.Request;
+package com.android.tripolis.boodilo.Database.Query;
 
 /**
  * Created by v.karyagin on 9/14/17.
  */
 
-public abstract class Request {
+public abstract class Query {
 
     protected final String tableName;
 
-    public Request (String tableName) {
+    public Query(String tableName) {
         this.tableName = tableName;
     }
 

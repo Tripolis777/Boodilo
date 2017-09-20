@@ -1,17 +1,12 @@
-package com.android.tripolis.boodilo.Database.Request;
+package com.android.tripolis.boodilo.Database.Query;
 
-import android.text.TextUtils;
-
-import com.android.tripolis.boodilo.Database.Request.Condition.WhereCondition;
-import com.android.tripolis.boodilo.Database.Request.SelectRequest;
-
-import java.util.ArrayList;
+import com.android.tripolis.boodilo.Database.Query.Condition.WhereCondition;
 
 /**
  * Created by v.karyagin on 9/12/17.
  */
 
-public class SimpleSelectRequest extends SelectRequest<String> {
+public class SimpleSelectQuery extends SelectQuery<String> {
     private static final String SIMPLE_SELECT_TEMPLATE = "SELECT %s FROM %s";
     private static final String SIMPLE_WHERE_TEMPLATE = "WHERE %s";
 
@@ -19,7 +14,7 @@ public class SimpleSelectRequest extends SelectRequest<String> {
 
     private WhereCondition<String> whereCondition;
 
-    public SimpleSelectRequest(String tableName) {
+    public SimpleSelectQuery(String tableName) {
         super(tableName);
     }
 

@@ -1,6 +1,6 @@
-package com.android.tripolis.boodilo.Database.Request;
+package com.android.tripolis.boodilo.Database.Query;
 
-import com.android.tripolis.boodilo.Database.Request.Condition.WhereCondition;
+import com.android.tripolis.boodilo.Database.Query.Condition.WhereCondition;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Created by v.karyagin on 9/12/17.
  */
 
-public abstract class SelectRequest<T> extends Request {
+public abstract class SelectQuery<T> extends Query {
 
 //    private static final String SIMPLE_SELECT_TEMPLATE = "SELECT %s FROM %s";
 //    private static final String SIMPLE_WHERE_TEMPLATE = "WHERE %s";
@@ -23,7 +23,7 @@ public abstract class SelectRequest<T> extends Request {
     protected String having;
     protected boolean distinct;
 
-    public SelectRequest(String tableName) {
+    public SelectQuery(String tableName) {
         super(tableName);
         columns = new ArrayList<>();
     }

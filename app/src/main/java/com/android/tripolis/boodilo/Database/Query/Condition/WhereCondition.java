@@ -1,4 +1,4 @@
-package com.android.tripolis.boodilo.Database.Request.Condition;
+package com.android.tripolis.boodilo.Database.Query.Condition;
 
 /**
  * Created by v.karyagin on 9/12/17.
