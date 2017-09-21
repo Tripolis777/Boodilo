@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Created by v.karyagin on 9/12/17.
  */
 
-public abstract class SelectQuery<T> extends Query {
+public abstract class SelectQuery<T> extends Query implements WithWhereCondition<T> {
 
 //    private static final String SIMPLE_SELECT_TEMPLATE = "SELECT %s FROM %s";
 //    private static final String SIMPLE_WHERE_TEMPLATE = "WHERE %s";
@@ -27,10 +27,6 @@ public abstract class SelectQuery<T> extends Query {
         super(tableName);
         columns = new ArrayList<>();
     }
-
-    public abstract void setWhereCondition (WhereCondition<T> whereCondition);
-    public abstract String getWhereSQL ();
-
 
     public void setGroupBy(String groupBy) {
         this.groupBy = groupBy;

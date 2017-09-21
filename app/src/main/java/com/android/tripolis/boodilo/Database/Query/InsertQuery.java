@@ -7,12 +7,26 @@ import android.support.annotation.Nullable;
  * Created by v.karyagin on 9/19/17.
  */
 
-public abstract class InsertQuery extends Query {
+public class InsertQuery extends Query {
 
-    public InsertQuery(String tableName) {
-        super(tableName);
+    protected final ContentValues values;
+    protected String nullColumns;
+
+    public InsertQuery(String tableName, ContentValues values) {
+        this(tableName, values, null);
     }
 
-    public abstract ContentValues getContentValues();
-    public abstract @Nullable String getNullColumns();
+    public InsertQuery(String tableName, ContentValues values, @Nullable String nullColumns) {
+        super(tableName);
+        this.values = values;
+        this.nullColumns = nullColumns;
+    }
+
+    public ContentValues getContentValues() {
+        return this.values;
+    }
+
+    public @Nullable String getNullColumns() {
+        return this.nullColumns;
+    }
 }
