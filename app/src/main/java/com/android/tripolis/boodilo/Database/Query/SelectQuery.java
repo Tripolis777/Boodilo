@@ -26,6 +26,7 @@ public abstract class SelectQuery<T> extends Query implements WithWhereCondition
     public SelectQuery(String tableName) {
         super(tableName);
         columns = new ArrayList<>();
+        distinct = false;
     }
 
     public void setGroupBy(String groupBy) {
