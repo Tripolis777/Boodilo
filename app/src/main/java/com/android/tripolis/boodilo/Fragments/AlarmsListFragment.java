@@ -36,7 +36,11 @@ public class AlarmsListFragment extends Fragment {
     private DatabaseSelectTask selectTask;
 
     public static AlarmsListFragment newInstance() {
-        return new AlarmsListFragment();
+        Bundle args = new Bundle();
+
+        AlarmsListFragment fragment = new AlarmsListFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override

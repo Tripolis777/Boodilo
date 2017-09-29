@@ -2,12 +2,7 @@
     <string name="app_name">Boodilo Beta</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="alarm_entries_debug">
-        <item>TEST</item>
-        <item>TESTY!</item>
-        <item>TESTSTTS</item>
-        <item>TEST!!!!</item>
-        <item>TEST!</item>
-        <item>Test1</item>
-    </string-array>
+    <string name="accept_button">Accept</string>
+    <string name="cancel_button">Cancel</string>
+
 </resources>

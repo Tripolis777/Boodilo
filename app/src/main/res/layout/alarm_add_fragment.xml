@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/editTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="time" />
+
+    <Button
+        android:id="@+id/acceptTimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTime"
+        android:layout_marginTop="54dp"
+        android:layout_toStartOf="@+id/cancelTimeButton"
+        android:text="@string/accept_button" />
+
+    <Button
+        android:id="@+id/cancelTimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/acceptTimeButton"
+        android:layout_alignBottom="@+id/acceptTimeButton"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/editTime"
+        android:text="@string/cancel_button" />
+</RelativeLayout>
